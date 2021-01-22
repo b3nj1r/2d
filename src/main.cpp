@@ -1,8 +1,11 @@
 #define _USE_MATH_DEFINES
 #include <GL/glut.h>
+#include <iostream>
 #include <math.h>
 #include <stdio.h>
+#include "vector2.h"
 const float pi = 3.14159;
+vector2 position;
 void drawCircle(float a, float b, float r, int i)
 {
 	glBegin(GL_TRIANGLE_FAN);
@@ -26,14 +29,17 @@ void start()
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	glOrtho(0.0, 1.0, 0.0, 1.0, -1.0, 1.0);
+	position.x = 0.5;
+	position.y = 0.5;
 }
+
 
 // frame based continous update
 void update()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 	glColor3f(1.0,1.0,1.0);
-	drawCircle(0.5, 0.5, 0.2, 4);
+	drawCircle(position.x, position.y, 0.2, 10);
 	glFlush();
 }
 
