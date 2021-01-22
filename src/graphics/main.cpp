@@ -1,35 +1,34 @@
-#include <GLFW/glfw3.h>
+#include <GL/glut.h>
+#include <math.h>
 
-int main(void)
+void drawCircle()
 {
-    GLFWwindow* window;
+	
+}
+void start()
+{
+	glClearColor(1.0,1.0,1.0,1.0);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glOrtho(0.0, 1.0, 0.0, 1.0, -1.0, 1.0);
+}
 
-    // initialization
-    if (!glfwInit())
-        return -1;
+void update()
+{
+	
+}
 
-    // create window
-    window = glfwCreateWindow(32, 32, "Hello World", NULL, NULL);
-    if (!window)
-    {
-        glfwTerminate();
-        return -1;
-    }
-
-    // assign window's current context
-    glfwMakeContextCurrent(window);
-
-    // update while window is open
-    while (!glfwWindowShouldClose(window))
-    {
-        // rendering
-        glClear(GL_COLOR_BUFFER_BIT);
-        glfwSwapBuffers(window);
-
-        // event handling
-        glfwPollEvents();
-    }
-    // terminate window
-    glfwTerminate();
-    return 0;
+int main(int argc, char** argv)
+{
+	glutInit(&argc,argv);
+	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+	glutInitWindowSize(500,500);
+	glutInitWindowPosition(200,200);
+	glutCreateWindow("2d");
+	start();
+	glutDisplayFunc(update);
+	glClear(GL_COLOR_BUFFER_BIT);
+	glColor3f(1.0,1.0,1.0);
+	glutMainLoop();
+	return 0;
 }
