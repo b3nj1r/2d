@@ -9,7 +9,7 @@ vector2 position;
 void drawCircle(float a, float b, float r, int i)
 {
 	glBegin(GL_TRIANGLE_FAN);
-	// iterate from E[0, 2pi] 
+	// iterate from E[0, 2pi]
 	float inc = pi/i;
 	for(float t = 0; t < 2*pi; t+=inc)
 	{
@@ -38,16 +38,16 @@ void start()
 void update()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
-	glColor3f(1.0,1.0,1.0);
-	drawCircle(position.x, position.y, 0.2, 10);
+	glColor3f(0.5,0.5,0.5);
+	drawCircle(position.x, position.y, 0.2, 20);
 	glFlush();
 }
 
 int main(int argc, char** argv)
 {
 	glutInit(&argc,argv);
-	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-	glutInitWindowSize(500,500);
+  glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_MULTISAMPLE);
+  glutInitWindowSize(500,500);
 	glutInitWindowPosition(200,200);
 	glutCreateWindow("2d");
 	start();
